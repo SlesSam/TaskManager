@@ -14,7 +14,7 @@ import (
 	"gorm.io/gorm"
 )
 
-func execute(db *gorm.DB) {
+func Comands(db *gorm.DB) {
 
 	var cmdAdd = &cobra.Command{
 		Use:   "add",

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"taskmanager/cmd"
 	"taskmanager/internal/tasks"
 
 	"gorm.io/driver/postgres"
@@ -8,8 +9,8 @@ import (
 )
 
 func main() {
-	//TODO
-	dsn := "host=localhost user=adminuser password=admin dbname=mydatabase port=5432 sslmode=disable"
+
+	dsn := "host=localhost user=adminuser password=admin dbname=mytasksdb port=5432 sslmode=disable"
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
 	if err != nil {
@@ -18,5 +19,5 @@ func main() {
 
 	db.AutoMigrate(&tasks.Task{})
 
-	// cmd.Execute(db)
+	cmd.Comands(db)
 }
